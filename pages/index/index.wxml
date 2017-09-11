@@ -1,0 +1,29 @@
+<!--index.wxml-->
+  <!-- <wxs src="../../src/wxs/common.wxs" module="util" />  -->
+
+<view>
+   <block wx:for="{{names}}" wx:key="item">
+        {{item}}
+    </block> 
+</view>
+
+<view>
+     {{util.joinArray(names)}}
+</view>
+
+<view>
+     {{content}} 
+</view>
+
+<wxs module="util">
+    var joinArray = function (array) {
+        return array.join(' ')
+    }
+
+    module.exports = {
+        joinArray: joinArray
+    }
+</wxs>
+<view>
+    {{util.joinArray(names)}}
+</view>

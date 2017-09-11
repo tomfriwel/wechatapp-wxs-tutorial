@@ -1,0 +1,11 @@
+<!--pages/checkEmail/checkEmail.wxml-->
+
+<!-- 引入wxs，并设置module名 -->
+<wxs src="../../src/wxs/common.wxs" module="util" />
+
+<!-- 通过检测邮箱是否有效，来设置相应的class，再在wxss中写好相应的样式 -->
+<input class="email_input {{util.validateEmail(email)?'':'error'}}" placeholder='请输入邮箱' value='{{email}}' bindinput='emailInput'></input>
+<view class='button_wrapper'>
+    <!-- 邮箱无效时，禁用确定按钮 -->
+    <button type='primary' disabled="{{util.validateEmail(email)?false:true}}" bindtap='confirmTap'>确定</button>
+</view>
